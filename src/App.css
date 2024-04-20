@@ -25,7 +25,7 @@
   gap: 50px;
 }
 
-.App-link {
+.loginText {
   color: #61dafb;
 }
 
@@ -36,6 +36,11 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+button:hover {
+  cursor: pointer;
+  background-color: #ffffff;
 }
 
 .logos {
@@ -52,4 +57,22 @@
 .sql-logo {
   width: 100px;
   height: 100px;
+}
+
+.loginForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 10px 20px;
+}
+
+#password {
+  margin-bottom: 20px;
+}
+
+.loginBtn {
+  width: 80px;
+  height: 30px;
+  border-radius: 10px;
 }

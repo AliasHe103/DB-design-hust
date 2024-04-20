@@ -2,6 +2,8 @@ const { app, BrowserWindow, ipcMain } = require('electron/main')
 const path = require('node:path')
 const url = require('url');
 const mode = process.argv[2];
+const mysql = require('mysql');
+let connection = null;
 
 function createWindow () {
     const mainWindow = new BrowserWindow({
@@ -23,11 +25,11 @@ function createWindow () {
             slashes:true
         }));
     }
-
 }
 
 app.whenReady().then(() => {
     ipcMain.handle('ping', () => 'pong');
+
     createWindow();
     app.on('activate', function () {
         if (BrowserWindow.getAllWindows().length === 0) createWindow()
@@ -37,3 +39,26 @@ app.whenReady().then(() => {
 app.on('window-all-closed', function () {
     if (process.platform !== 'darwin') app.quit()
 });
+
+ipcMain.handle('login-request', async (event, {account, password}) => {
+    //建立mysql连接
+    connection = mysql.createConnection({
+        host: 'localhost',
+        user: account,
+        password: password,
+        database: 'students_db'
+    });
+
+    return await new Promise((resolve, reject) => {
+        connection.connect(err => {
+            if (err) {
+                const error = 'Error connecting to database:' + err;
+                console.error(error);
+                resolve(error);
+            } else {
+                console.log('Connected to database');
+                resolve('login success');
+            }
+        });
+    });
+})

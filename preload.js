@@ -5,6 +5,7 @@ contextBridge.exposeInMainWorld('expose', {
     chrome: () => process.versions.chrome,
     electron: () => process.versions.electron,
     ping: () => ipcRenderer.invoke('ping'),
+    login: (account, password) => ipcRenderer.invoke('login-request', {account, password}),
 });
 
 window.getStr = 'str';
