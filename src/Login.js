@@ -37,7 +37,7 @@ function Login() {
                     </div>
                     <button className={'loginBtn'} onClick={handleLogin}>登录</button>
                 </form>
-                <div className="loginText">
+                <div className="loginText text">
                     {str}
                 </div>
             </header>

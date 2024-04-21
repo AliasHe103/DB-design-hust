@@ -14,6 +14,8 @@
     "buffer": "^6.0.3",
     "crypto": "^1.0.1",
     "electron": "^30.0.0",
+    "framer-motion": "^11.1.7",
+    "iconv-lite": "^0.6.3",
     "mysql": "^2.18.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -27,8 +29,8 @@
     "react-build": "react-scripts build",
     "react-test": "react-scripts test",
     "react-eject": "react-scripts eject",
-    "electron": "electron .",
-    "electron-dev": "electron . dev",
+    "electron": "chcp 65001 && electron .",
+    "electron-dev": "chcp 65001 && electron . dev",
     "both-exec": "react-scripts build && electron ."
   },
   "eslintConfig": {
