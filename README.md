@@ -13,7 +13,7 @@
 
 ***install:***<br>
 ```shell
-git clone https://github.com/AliasHe103/React-with-Electron
+git clone https://github.com/AliasHe103/DB-design-hust
 npm install
 npm run electron
 ```
